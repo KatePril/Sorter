@@ -12,11 +12,11 @@ object QuickSorter: Sorter {
             if (compare(arr[j], pivot, reverse)) {
                 i++
 
-                swap(arr, i, j)
+                if (i != j) swap(arr, i, j)
             }
         }
 
-        swap(arr, i+1, end)
+        if (i+1 != end) swap(arr, i+1, end)
 
         return i+1
     }
