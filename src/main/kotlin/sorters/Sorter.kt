@@ -1,6 +1,6 @@
 package sorters
 
-interface Sort {
+interface Sorter {
     fun sort(arr: Array<Int>, reverse: Boolean = false)
 
     fun compare(el1: Int, el2: Int, reverse: Boolean): Boolean  {

@@ -1,6 +1,6 @@
 package sorters
 
-object MergeSorter: Sort {
+object MergeSorter: Sorter {
     override fun sort(arr: Array<Int>, reverse: Boolean) {
         sort(arr,0, arr.size - 1, reverse)
     }
