@@ -1,12 +1,11 @@
 package sorters
 
 object MergeSorter: Sort {
-//object MergeSorter {
     override fun sort(arr: Array<Int>, reverse: Boolean) {
-        sort(arr,0, arr.size - 1)
+        sort(arr,0, arr.size - 1, reverse)
     }
 
-    private fun merge(arr: Array<Int>, l: Int, m: Int, r: Int) {
+    private fun merge(arr: Array<Int>, l: Int, m: Int, r: Int, reverse: Boolean) {
         val n1: Int = m - l + 1
         val n2: Int = r - m
 
@@ -24,7 +23,7 @@ object MergeSorter: Sort {
 
         var k: Int = l
         while (i < n1 && j < n2) {
-            if (left_arr[i] <= right_arr[j]) {
+            if (compare(left_arr[i], right_arr[j], reverse)) {
                 arr[k] = left_arr[i]
                 i++
             }
@@ -48,15 +47,16 @@ object MergeSorter: Sort {
         }
     }
 
-    private fun sort(arr: Array<Int>, l: Int, r: Int) {
+    private fun sort(arr: Array<Int>, l: Int, r: Int, reverse: Boolean) {
         if (l < r) {
             val m: Int = l + (r-l) / 2
 
-            sort(arr, l, m)
-            sort(arr, m + 1, r)
+            sort(arr, l, m, reverse)
+            sort(arr, m + 1, r, reverse)
 
-            merge(arr, l, m, r)
+            merge(arr, l, m, r, reverse)
         }
     }
+
 
 }
