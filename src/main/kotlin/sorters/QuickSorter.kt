@@ -1,6 +1,6 @@
 package sorters
 
-object QuickSorter: Sorter {
+object QuickSorter: Sorter, Swapper {
     override fun sort(arr: Array<Int>, reverse: Boolean) {
         sort(arr, 0, arr.size-1, reverse)
     }
@@ -19,12 +19,6 @@ object QuickSorter: Sorter {
         if (i+1 != end) swap(arr, i+1, end)
 
         return i+1
-    }
-
-    private fun swap(arr: Array<Int>, i: Int, j: Int) {
-        val tmp = arr[i]
-        arr[i] = arr[j]
-        arr[j] = tmp
     }
 
     private fun sort(arr: Array<Int>, begin: Int, end: Int, reverse: Boolean) {
